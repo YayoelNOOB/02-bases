@@ -1,0 +1,31 @@
+<!-- ngFor nos funciona como un for pero dentro del template, hacver una duplicidad de elementos, entre otros. -->
+
+<h3>Listado de Héroes</h3>
+
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Héroe borrado <small class="text-danger"> {{ deletedHero }} </small> </h3>
+</div>
+
+
+<!-- El ng-template es un div que no existe, es decir que en vez de la app construya el div, solo muestra el contenido -->
+<!-- El #nothingWasDeleted es una etiquieta que nos sirve para referenciar lo que pasa si no se cumple la condición -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado a ningún héroe</h3>
+</ng-template>
+
+<button
+  *ngIf="heroNames.length > 0"
+  (click)="removeLastHero()"
+  class="btn btn-outline-danger">
+  Borrar Último Héroe
+</button>
+
+<!-- ngIfElse nos funciona para mostrar una situación donde sea verdadera y otra para la falsa (a diferencia del ngIf que muestra la verdadera o la falsa, pero solo una) -->
+
+<!-- Con el ngFor crea un template que repite basado en el arreglo que se hizo en list.component -->
+<ul class="mt-2 list-group">
+  <li *ngFor="let name of heroNames"
+  class="list-group-item">
+  {{ name }}
+</li>
+</ul>
