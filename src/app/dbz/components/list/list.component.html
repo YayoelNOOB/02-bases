@@ -11,7 +11,13 @@
   let isOdd = odd
   "
 
-    class="list-group-item">
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-danger': isFirst,
+      'list-group-item-info': isLast
+      }">
+    <!-- EL ngClass nos sirve para darle estilos a diferentes clases sin rompernos la cabeza con ifs o fors -->
+
     <!-- El índice inicia en el 0 pero para que inicie con 1 solo hay que ponerle el '+1' -->
     <span class="text-primary"> {{i + 1}} </span>
 

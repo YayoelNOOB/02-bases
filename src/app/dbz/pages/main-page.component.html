@@ -9,8 +9,9 @@
   </div>
   <div class="col">
 
+    <!-- TypeScript sabe que estoy recibiendo un character del onNewCharacter y sabe que la función nos pide un string -->
+    <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
 
 
-    <dbz-add-character></dbz-add-character>
   </div>
 </div>

@@ -1,10 +1,27 @@
 <h4>Add Characters</h4>
 
-    <form class="row">
-      <input type="text" class="form-control mb-2" placeholder="Character Name">
-      <input type="number" class="form-control mb-2" placeholder="Power">
+<!-- Para usar el ngModel se tiene que importar el FormsModule -->
+
+<!-- El ngSumbit nos sirve para enviar la información al dar click  -->
+
+    <form class="row" (ngSubmit)="emitCharacter()">
+      <input
+        type="text" [(ngModel)]="character.name"
+        name="name"
+        class="form-control mb-2"
+        placeholder="Character Name">
+
+      <input
+        type="number"
+        [(ngModel)]="character.power"
+        name="power"
+        class="form-control mb-2"
+        placeholder="Power">
 
       <button type="submit" class="btn btn-primary">
         Add
       </button>
+
+      <pre>{{ character | json }}</pre>
+
     </form>
