@@ -5,8 +5,12 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build",
+    "build:href": "ng build --base-href ./",
+    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "delete:docs": "del-cli docs",
+    "copy:dist": "copyfiles dist/browser/* ./docs -f"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
     "bootstrap-icons": "^1.11.3",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^5.1.0",
     "rxjs": "~7.8.0",
     "save-dev": "^0.0.1-security",
     "tslib": "^2.3.0",
