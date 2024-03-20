@@ -9,7 +9,10 @@ import { Character } from '../../interfaces/characters.interface';
 export class AddCharacterComponent {
 
   // El eventEmitter nos ayuda a crear una instancia de emisor de eventos. Se tiene que decorar con @Output()
+  // y sirve para agregar al personaje.
+  // El output nos ayuda a subscribirnos lo que significa que estamos escuchando las emisiones de un objeto
   @Output()
+  //Esta es la instancia de emisor de evento
   public onNewCharacter: EventEmitter<Character> = new EventEmitter();
 
   public character: Character = {
@@ -18,14 +21,18 @@ export class AddCharacterComponent {
   };
 
   emitCharacter(): void{
+
+    //Debuger es un breakpoint que al llegar a este, se para la operación.
+    //debugger;
+
     console.log(this.character);
     // El if es para que nadie pueda enviar un personaje sin nombre
     if( this.character.name.length === 0 ) return;
     //Si tiene nombre hay que emitir el personaje con la siguiente línea
     this.onNewCharacter.emit(this.character);
 
-    this.character.name = '';
-    this.character.power = 0
+    // Esta línea es para que al dar un enter o en el botón nos limpie nuestros campos de name y power
+    this.character = { name: '', power: 0 };
   }
 
 }

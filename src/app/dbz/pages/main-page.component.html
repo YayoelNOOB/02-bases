@@ -4,12 +4,15 @@
 <div class="row">
   <div class="col">
 
-    <dbz-list [characterList]="characters"></dbz-list>
+    <dbz-list [characterList]="characters"
+              (onDelete) = "onDeleteCharacter($event)"></dbz-list>
 
   </div>
   <div class="col">
 
-    <!-- TypeScript sabe que estoy recibiendo un character del onNewCharacter y sabe que la función nos pide un string -->
+    <!-- TypeScript sabe que estoy recibiendo un character del onNewCharacter y sabe que la función nos pide un string por eso
+    existe el $event -->
+
     <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
 
 
